@@ -1316,11 +1316,11 @@ static ssize_t headphone_gain_store(struct kobject *kobj,
 
 	sscanf(buf, "%d %d", &input_l, &input_r);
 
-	if (input_l < -84 || input_l > 20)
-		input_l = 0;
+	if (input_l < -84 || input_l > 20 || input_l == 0)
+		input_l = 6;
 
-	if (input_r < -84 || input_r > 20)
-		input_r = 0;
+	if (input_r < -84 || input_r > 20 || input_r == 0)
+		input_r = 6;
 
 	snd_soc_component_write(sound_control_codec_ptr, MSM89XX_CDC_CORE_RX1_VOL_CTL_B2_CTL, input_l);
 	snd_soc_component_write(sound_control_codec_ptr, MSM89XX_CDC_CORE_RX2_VOL_CTL_B2_CTL, input_r);
@@ -1347,8 +1347,8 @@ static ssize_t mic_gain_store(struct kobject *kobj,
 {
 	int input;
  	sscanf(buf, "%d", &input);
- 	if (input < -84 || input > 20)
-		input = 0;
+ 	if (input < -84 || input > 20 || input == 0)
+		input = 5;
  	snd_soc_component_write(sound_control_codec_ptr, MSM89XX_CDC_CORE_TX1_VOL_CTL_GAIN, input);
  	return count;
 }
@@ -1372,8 +1372,8 @@ static ssize_t earpiece_gain_store(struct kobject *kobj,
 {
 	int input;
  	sscanf(buf, "%d", &input);
- 	if (input < -84 || input > 20)
-		input = 0;
+ 	if (input < -84 || input > 20 || input == 0)
+		input = 7;
  	snd_soc_component_write(sound_control_codec_ptr, MSM89XX_CDC_CORE_RX3_VOL_CTL_B2_CTL, input);
  	return count;
 }
