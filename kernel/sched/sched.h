@@ -2125,7 +2125,7 @@ static inline u64 sched_ktime_clock(void)
 static __always_inline
 unsigned long arch_scale_freq_capacity(int cpu)
 {
-	return SCHED_CAPACITY_SCALE;
+	return capacity_orig_of(cpu);
 }
 #endif
 
@@ -2134,7 +2134,7 @@ struct sched_domain;
 static __always_inline
 unsigned long arch_scale_max_freq_capacity(struct sched_domain *sd, int cpu)
 {
-	return SCHED_CAPACITY_SCALE;
+	return capacity_orig_of(cpu);
 }
 #endif
 
@@ -3215,7 +3215,7 @@ static inline bool early_detection_notify(struct rq *rq, u64 wallclock)
 #ifdef CONFIG_SMP
 static inline unsigned int power_cost(int cpu, u64 demand)
 {
-	return SCHED_CAPACITY_SCALE;
+	return capacity_orig_of(cpu);
 }
 #endif
 
