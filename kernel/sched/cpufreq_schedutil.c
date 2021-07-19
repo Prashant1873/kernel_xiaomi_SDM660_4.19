@@ -17,12 +17,12 @@
 #include <trace/events/power.h>
 #include <linux/sched/sysctl.h>
 
-#define DEFAULT_UP_RATE_LIMIT_LP 1000
-#define DEFAULT_UP_RATE_LIMIT_HP 1000
+#define DEFAULT_UP_RATE_LIMIT_LP 10000
+#define DEFAULT_UP_RATE_LIMIT_HP 10000
 #define DEFAULT_UP_RATE_LIMIT_PR 1000
 
-#define DEFAULT_DOWN_RATE_LIMIT_LP 1000
-#define DEFAULT_DOWN_RATE_LIMIT_HP 1000
+#define DEFAULT_DOWN_RATE_LIMIT_LP 10000
+#define DEFAULT_DOWN_RATE_LIMIT_HP 10000
 #define DEFAULT_DOWN_RATE_LIMIT_PR 1000
 
 #define DEFAULT_RTG_BOOST_FREQ_LP 0
@@ -37,9 +37,9 @@
 #define DEFAULT_HISPEED_FREQ_HP 0
 #define DEFAULT_HISPEED_FREQ_PR 0
 
-#define DEFAULT_PL_LP 1
-#define DEFAULT_PL_HP 1
-#define DEFAULT_PL_PR 1
+#define DEFAULT_PL_LP 0
+#define DEFAULT_PL_HP 0
+#define DEFAULT_PL_PR 0
 
 struct sugov_tunables {
 	struct gov_attr_set	attr_set;
